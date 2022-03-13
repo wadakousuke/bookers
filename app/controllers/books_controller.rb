@@ -19,11 +19,11 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     if book.save
       flash[:notice] = "Succesfully 新規追加に成功しました"
+      redirect_to "/books/#{book.id}"
     else
       flash.now[:notice] = "新規追加に失敗しました"
+      redirect_to "/books"
     end
-    redirect_to "/books/#{book.id}"
-
   end
 
   def update
