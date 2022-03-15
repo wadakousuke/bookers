@@ -21,7 +21,6 @@ class BooksController < ApplicationController
       flash[:notice] = "Succesfully 新規追加に成功しました"
       redirect_to "/books/#{book.id}"
     else
-      flash.now[:notice] = "新規追加に失敗しました"
       redirect_to "/books"
     end
   end
@@ -30,10 +29,9 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     if book.update(book_params)
       flash[:notice] = "Succesfully 更新に成功しました"
-    else
-      flash.now[:noticer] = "更新に失敗しました"
+
     end
-    redirect_to "/books/#{book.id}"
+       redirect_to "/books/#{book.id}"
   end
 
   def destroy
